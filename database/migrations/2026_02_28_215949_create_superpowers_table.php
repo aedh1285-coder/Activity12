@@ -6,20 +6,24 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * Run the migrations.
+     */
     public function up(): void
     {
-        Schema::create('superheroes', function (Blueprint $table) {
+        Schema::create('superpowers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('real_name')->nullable();
-            $table->enum('gender', ['Male', 'Female', 'Other']);
-            $table->foreignId('universe_id')->constrained();
+            $table->text('description');
             $table->timestamps();
         });
     }
 
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
-        Schema::dropIfExists('superheroes');
+        Schema::dropIfExists('superpowers');
     }
 };
