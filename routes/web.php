@@ -1,20 +1,53 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UniverseController;
-use App\Http\Controllers\SuperheroController;
-use App\Http\Controllers\SuperpowerController;
+use App\Http\Controllers\Universe\UniverseIndexController;
+use App\Http\Controllers\Universe\UniverseCreateController;
+use App\Http\Controllers\Universe\UniverseStoreController;
+use App\Http\Controllers\Universe\UniverseEditController;
+use App\Http\Controllers\Universe\UniverseUpdateController;
+use App\Http\Controllers\Universe\UniverseDestroyController;
 
-Route::get('/universes', [UniverseController::class, 'index'])->name('universes.index');
-Route::get('/superheroes', [SuperheroController::class, 'index'])->name('superheroes.index');
-Route::get('/superpowers', [SuperpowerController::class, 'index'])->name('superpowers.index');
+use App\Http\Controllers\Superheroe\SuperheroeIndexController;
+use App\Http\Controllers\Superheroe\SuperheroeCreateController;
+use App\Http\Controllers\Superheroe\SuperheroeStoreController;
+use App\Http\Controllers\Superheroe\SuperheroeEditController;
+use App\Http\Controllers\Superheroe\SuperheroeUpdateController;
+use App\Http\Controllers\Superheroe\SuperheroeDestroyController;
 
-// Rutas para Superhéroes (Create y Update)
-Route::post('/superheroes', [SuperheroController::class, 'store'])->name('superheroes.store');
-Route::put('/superheroes/{superhero}', [SuperheroController::class, 'update'])->name('superheroes.update');
-Route::get('/superheroes/{superhero}/edit', [SuperheroController::class, 'edit'])->name('superheroes.edit');
+use App\Http\Controllers\Superheroe\SuperpowerIndexController;
+use App\Http\Controllers\Superheroe\SuperpowerCreateController;
+use App\Http\Controllers\Superheroe\SuperpowerStoreController;
+use App\Http\Controllers\Superheroe\SuperpowerEditController;
+use App\Http\Controllers\Superheroe\SuperpowerUpdateController;
+use App\Http\Controllers\Superheroe\SuperpowerDestroyController;
 
-// Rutas para Universos (Create y Update)
-Route::post('/universes', [UniverseController::class, 'store'])->name('universes.store');
-Route::put('/universes/{universe}', [UniverseController::class, 'update'])->name('universes.update');
-Route::get('/universes/{universe}/edit', [UniverseController::class, 'edit'])->name('universes.edit');
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+*/
+
+// RUTAS PARA UNIVERSOS 
+Route::get('/universes', UniverseIndexController::class)->name('universes.index');
+Route::get('/universes/create', UniverseCreateController::class)->name('universes.create');
+Route::post('/universes', UniverseStoreController::class)->name('universes.store');
+Route::get('/universes/{universe}/edit', UniverseEditController::class)->name('universes.edit');
+Route::put('/universes/{universe}', UniverseUpdateController::class)->name('universes.update');
+Route::delete('/universes/{universe}', UniverseDestroyController::class)->name('universes.destroy');
+
+// RUTAS PARA SUPERHÉROES 
+Route::get('/superheroes', SuperheroeIndexController::class)->name('superheroes.index');
+Route::get('/superheroes/create', SuperheroeCreateController::class)->name('superheroes.create');
+Route::post('/superheroes', SuperheroeStoreController::class)->name('superheroes.store');
+Route::get('/superheroes/{superhero}/edit', SuperheroeEditController::class)->name('superheroes.edit');
+Route::put('/superheroes/{superhero}', SuperheroeUpdateController::class)->name('superheroes.update');
+Route::delete('/superheroes/{superhero}', SuperheroeDestroyController::class)->name('superheroes.destroy');
+
+// Rutas para Superpoderes 
+Route::get('/superpowers', App\Http\Controllers\Superpower\SuperpowerIndexController::class)->name('superpowers.index');
+Route::get('/superpowers/create', App\Http\Controllers\Superpower\SuperpowerCreateController::class)->name('superpowers.create');
+Route::post('/superpowers', App\Http\Controllers\Superpower\SuperpowerStoreController::class)->name('superpowers.store');
+Route::get('/superpowers/{superpower}/edit', App\Http\Controllers\Superpower\SuperpowerEditController::class)->name('superpowers.edit');
+Route::put('/superpowers/{superpower}', App\Http\Controllers\Superpower\SuperpowerUpdateController::class)->name('superpowers.update');
+Route::delete('/superpowers/{superpower}', App\Http\Controllers\Superpower\SuperpowerDestroyController::class)->name('superpowers.destroy');
