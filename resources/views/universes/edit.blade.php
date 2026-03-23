@@ -7,7 +7,7 @@
 <body>
     <nav class="navbar navbar-dark bg-dark mb-4">
         <div class="container">
-            <span class="navbar-brand mb-0 h1">✏️ Editar Universo</span>
+            <span class="navbar-brand mb-0 h1"> Editar Universo</span>
         </div>
     </nav>
 

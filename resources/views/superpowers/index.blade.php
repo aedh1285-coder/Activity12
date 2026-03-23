@@ -7,7 +7,7 @@
 <body>
     <nav class="navbar navbar-dark bg-dark mb-4">
         <div class="container">
-            <span class="navbar-brand mb-0 h1">⚡ Gestión de Superpoderes</span>
+            <span class="navbar-brand mb-0 h1"> Gestión de Superpoderes</span>
         </div>
     </nav>
 
@@ -17,6 +17,7 @@
         @endif
 
         <div class="mb-3">
+            <a href="{{ route('home') }}" class="btn btn-secondary"> Inicio</a>
             <a href="{{ route('superpowers.create') }}" class="btn btn-primary">+ Nuevo Superpoder</a>
         </div>
 
@@ -37,6 +38,7 @@
                     <td>{{ $power->description }}</td>
                     <td>
                         <a href="{{ route('superpowers.edit', $power) }}" class="btn btn-sm btn-warning">Editar</a>
+                        <a href="{{ route('superpowers.show', $power) }}" class="btn btn-sm btn-secondary">Mostrar</a>
                         <form action="{{ route('superpowers.destroy', $power) }}" method="POST" style="display: inline;">
                             @csrf
                             @method('DELETE')

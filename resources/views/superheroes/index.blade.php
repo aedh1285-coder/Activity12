@@ -7,7 +7,7 @@
 <body>
     <nav class="navbar navbar-dark bg-dark mb-4">
         <div class="container">
-            <span class="navbar-brand mb-0 h1">🦸 Gestión de Superhéroes</span>
+            <span class="navbar-brand mb-0 h1"> Gestión de Superhéroes</span>
         </div>
     </nav>
 
@@ -17,6 +17,7 @@
         @endif
 
         <div class="mb-3">
+            <a href="{{ route('home') }}" class="btn btn-secondary"> Inicio</a>
             <a href="{{ route('superheroes.create') }}" class="btn btn-primary">+ Nuevo Superhéroe</a>
         </div>
 
@@ -45,6 +46,7 @@
                     <td>{{ $hero->universe->name ?? 'N/A' }}</td>
                     <td>
                         <a href="{{ route('superheroes.edit', $hero) }}" class="btn btn-sm btn-warning">Editar</a>
+                        <a href="{{ route('superheroes.show', $hero) }}" class="btn btn-sm btn-secondary">Mostrar</a>
                         <form action="{{ route('superheroes.destroy', $hero) }}" method="POST" style="display: inline;">
                             @csrf
                             @method('DELETE')

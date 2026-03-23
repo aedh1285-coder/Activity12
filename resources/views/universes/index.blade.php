@@ -7,7 +7,7 @@
 <body>
     <nav class="navbar navbar-dark bg-dark mb-4">
         <div class="container">
-            <span class="navbar-brand mb-0 h1">🌌 Gestión de Universos</span>
+            <span class="navbar-brand mb-0 h1"> Gestión de Universos</span>
         </div>
     </nav>
 
@@ -21,6 +21,7 @@
         @endif
 
         <div class="mb-3">
+            <a href="{{ route('home') }}" class="btn btn-secondary"> Inicio</a>    
             <a href="{{ route('universes.create') }}" class="btn btn-primary">+ Nuevo Universo</a>
         </div>
 
@@ -49,6 +50,7 @@
                     </td>
                     <td>
                         <a href="{{ route('universes.edit', $universe) }}" class="btn btn-sm btn-warning">Editar</a>
+                        <a href="{{ route('universes.show', $universe) }}" class="btn btn-sm btn-secondary">Mostrar</a>
                         <form action="{{ route('universes.destroy', $universe) }}" method="POST" style="display: inline;">
                             @csrf
                             @method('DELETE')
